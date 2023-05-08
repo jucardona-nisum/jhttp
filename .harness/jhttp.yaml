@@ -52,6 +52,9 @@ pipeline:
                   spec:
                     skipDryRun: false
                     pruningEnabled: false
+                    delegateSelectors:
+                      - docker-delegate
+                  failureStrategies: []
               - step:
                   name: Swap primary with stage service
                   identifier: bgSwapServices
@@ -59,6 +62,7 @@ pipeline:
                   timeout: 10m
                   spec:
                     skipDryRun: false
+                  failureStrategies: []
             rollbackSteps:
               - step:
                   name: Swap primary with stage service
